@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.1803
 
-[node name="RockBall" type="Node2D" groups=["air"]]
+[node name="RockBall" type="Node2D" groups=["rock"]]
 script = ExtResource( 1 )
 speed = 1000.0
 fire_delay = 0.5
@@ -14,7 +14,7 @@ area_node = NodePath("Area2D")
 counter_spell_group = "fire"
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.00784314, 1, 0, 1 )
+modulate = Color( 1, 0.470588, 0, 1 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 

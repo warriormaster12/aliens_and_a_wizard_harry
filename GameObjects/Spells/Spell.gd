@@ -11,7 +11,7 @@ export (String) var counter_spell_group = ""
 onready var life_time:Timer = Timer.new()
 onready var area: Area2D = get_node(area_node)
 
-signal counter_spell_detected
+signal counter_spell_detected(counter_spell_group)
 
 func _get_fire_delay()->float:
 	return fire_delay
@@ -41,7 +41,7 @@ func _on_LifeTime_timeout():
 func _area_has_entered(area):
 	if counter_spell_group != "":
 		if area.get_parent().is_in_group(counter_spell_group):
-			emit_signal("counter_spell_detected")
+			emit_signal("counter_spell_detected", counter_spell_group)
 
 func _physics_process(delta):
 	if direction != Vector2.ZERO:
