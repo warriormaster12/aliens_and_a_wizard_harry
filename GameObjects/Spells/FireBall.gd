@@ -8,9 +8,12 @@ extends Spell
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	connect("counter_spell_detected", self, "_on_counter_spell_detected")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_counter_spell_detected():
+	print("counter spell")
