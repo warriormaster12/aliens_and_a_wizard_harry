@@ -15,5 +15,5 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_counter_spell_detected():
-	print("counter spell")
+func _on_counter_spell_detected(counter_spell_group):
+	print(counter_spell_group)
