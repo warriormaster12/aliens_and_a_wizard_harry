@@ -7,9 +7,11 @@
 
 [node name="Knight" type="KinematicBody2D"]
 script = ExtResource( 2 )
+health = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 1 )
 texture = ExtResource( 1 )

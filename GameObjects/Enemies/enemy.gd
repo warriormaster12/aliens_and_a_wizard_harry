@@ -23,6 +23,11 @@ func _init(_health = 100, _movement_speed = 200, _acceleration = 5):
 func _ready():
 	pass # Replace with function body.
 
+func attack():
+	print("Attack not implemented")
+
+func target():
+	return (get_parent().get_node("player").position-self.position);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
