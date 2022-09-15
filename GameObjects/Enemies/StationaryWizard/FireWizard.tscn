@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="FireWizard" type="KinematicBody2D"]
+[node name="FireWizard" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
 movement_speed = 0
 acceleration = 0

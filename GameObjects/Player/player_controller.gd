@@ -49,7 +49,7 @@ func _cast_a_spell():
 		var spell_inst:Spell = spell.instance()
 		fire_delay.wait_time = spell_inst._get_fire_delay()
 		spell_inst._set_direction(look_direction)
-		
+		spell_inst._set_owning_node(self)
 	
 		spell_inst.position = self.position
 		
