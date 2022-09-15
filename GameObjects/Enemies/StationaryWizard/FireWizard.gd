@@ -25,7 +25,9 @@ func _physics_process(delta):
 func attack():
 	if spell != null:
 		var spell_inst:Spell = spell.instance()
-		spell_inst._set_direction(target() - self.position)
+		spell_inst._set_direction(target())
+		spell_inst._set_owning_node(self)
+		spell_inst.position = self.position
 		
 		get_tree().current_scene.add_child(spell_inst)
 	

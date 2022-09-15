@@ -16,6 +16,4 @@ func _ready():
 #	pass
 
 func _on_counter_spell_detected(counter_spell_group, body):
-	self.scale *= 1.2
-	self.damage * 1.2
-	body.queue_free()
+	print(counter_spell_group)

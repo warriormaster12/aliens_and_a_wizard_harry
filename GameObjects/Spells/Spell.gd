@@ -14,7 +14,7 @@ onready var area: Area2D = get_node(area_node)
 
 var owning_node:Node2D = null setget _set_owning_node,_get_owning_node
 
-signal counter_spell_detected(counter_spell_group)
+signal counter_spell_detected(counter_spell_group, body)
 
 func _get_fire_delay()->float:
 	return fire_delay
@@ -51,13 +51,13 @@ func _on_LifeTime_timeout():
 func _area_has_entered(area):
 	if counter_spell_group != "":
 		if area.get_parent().is_in_group(counter_spell_group):
-			emit_signal("counter_spell_detected", counter_spell_group)
+			emit_signal("counter_spell_detected", counter_spell_group, area.get_parent())
 
 func _body_has_entered(body):
-	if owning_node != body and owning_node != null:
-		if body.is_in_group("enemy"):
+	if body != owning_node and owning_node != null:
+		if body.is_in_group("enemy") and !owning_node.is_in_group("enemy"):
 			body._set_health(body._get_health() - damage)
-		elif body.is_in_group("player"):
+		elif body.is_in_group("player") and !owning_node.is_in_group("player"):
 			body._set_health(body._get_health() - damage)
 		self.queue_free()
 

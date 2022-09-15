@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 export (float) var speed = 300.0
 export (float) var acceleration = 10.0
+export var health:int = 100 setget _set_health, _get_health
 export (PackedScene) var spell 
 
 var counter_spell_group: String = ""
@@ -13,6 +14,14 @@ var velocity: Vector2
 var look_direction:Vector2
 
 onready var fire_delay:Timer = $FireDelay
+
+func _set_health(value:int):
+	health = value
+	if health <= 0.0:
+		get_tree().reload_current_scene()
+
+func _get_health()->int:
+	return health
 
 
 

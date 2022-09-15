@@ -15,4 +15,5 @@ spell = ExtResource( 3 )
 position = Vector2( 244, 44 )
 
 [node name="FireWizard" parent="." instance=ExtResource( 4 )]
+position = Vector2( 239, -70 )
 spell = ExtResource( 3 )
