@@ -15,5 +15,12 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_counter_spell_detected(counter_spell_group, body):
-	print(counter_spell_group)
+func _on_counter_spell_detected(_counter_spell_group, body):
+	body.queue_free()
+	#todo: figure out a way to split rocks in half properly
+	for i in 10:
+		var rock:Spell = load("res://GameObjects/Spells/RockBall.tscn").instance()
+		rock._set_direction(self._get_direction())
+		rock.position = self.position
+		rock.position *= 0.01
+		get_tree().current_scene.add_child(rock)

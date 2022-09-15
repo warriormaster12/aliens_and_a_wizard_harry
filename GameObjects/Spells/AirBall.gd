@@ -15,5 +15,8 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_counter_spell_detected(counter_spell_group, body):
-	body.queue_free()
+func _on_counter_spell_detected(_counter_spell_group, body):
+	body._set_direction(-body._get_direction())
+	body._set_owning_node(_get_owning_node())
+	body.speed *= 0.9
+	self.queue_free()

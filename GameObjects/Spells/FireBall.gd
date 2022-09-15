@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _on_counter_spell_detected(counter_spell_group, body):
+func _on_counter_spell_detected(_counter_spell_group, body):
 	self.scale *= 1.2
 	self.damage * 1.2
 	body.queue_free()
