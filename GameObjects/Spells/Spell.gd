@@ -34,7 +34,7 @@ func _get_owning_node():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	life_time.wait_time = 10.0
+	life_time.wait_time = 100.0
 	life_time.name = "life time"
 	life_time.one_shot = true
 	life_time.autostart = true

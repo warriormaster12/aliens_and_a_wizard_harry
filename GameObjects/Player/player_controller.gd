@@ -36,6 +36,12 @@ func _input(event):
 func _process(_delta):
 	if Input.is_action_pressed("cast_a_spell") && fire_delay.time_left <= 0.0:
 		_cast_a_spell()
+	if Input.is_action_just_pressed("spell_1"):
+		spell = preload("res://GameObjects/Spells/FireBall.tscn")
+	elif Input.is_action_just_pressed("spell_2"):
+		spell = preload("res://GameObjects/Spells/AirBall.tscn")
+	elif Input.is_action_just_pressed("spell_3"):
+		spell = preload("res://GameObjects/Spells/RockBall.tscn")
 
 func _physics_process(delta):
 	var direction: Vector2 = Vector2(Input.get_axis("move_l", "move_r"),Input.get_axis("move_u", "move_d"))
