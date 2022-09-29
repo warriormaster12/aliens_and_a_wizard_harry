@@ -1,0 +1,85 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Particles/Script/particle_manager.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Particles/Textures/explosion_atlas.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.36129, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.75, 0, 1, 1, 0.84375, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 200 ), 0.0, 0.0, 0, 0, Vector2( 0.516854, -58.1818 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.814607, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.949438, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 1
+emission_sphere_radius = 0.8
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 100.0
+radial_accel_random = 0.8
+radial_accel_curve = SubResource( 4 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.546099, 0.929078 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.703125, 0, 1, 0.501961, 0.501961, 0.501961, 0.0862745 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0.0609756, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.603659, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 1
+emission_sphere_radius = 4.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.03
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
+
+[node name="Particles2D" type="Particles2D"]
+emitting = false
+amount = 64
+speed_scale = 1.7
+explosiveness = 1.0
+visibility_rect = Rect2( -67.3876, -61.1225, 135.993, 126.466 )
+process_material = SubResource( 7 )
+script = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 8 )
+emitting = false
+amount = 12
+explosiveness = 1.0
+process_material = SubResource( 13 )
+texture = ExtResource( 2 )
